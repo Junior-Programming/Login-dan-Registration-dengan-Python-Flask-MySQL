@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registrasi Pengguna</title>
+
+    <!-- Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">              
+
+</head>
+<body>
+    <div class="container">
+        <h2>Registrasi Pengguna</h2>
+
+        <form action="{{ url_for('register') }}" method="POST">
+
+            {% if mesage is defined and mesage %}
+                <div class="alert alert-warning">
+                    {{ mesage }}
+                </div>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="name">Nama :</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama">
+            </div>
+
+            <div class="from-group">
+                <label for="email">Email :</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email">
+            </div>
+
+            <div class="form-group">
+                <label for="pwd">Password :</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" name="pswd">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Register
+            </button>
+
+            <p class="bottom"> Sudah punya Account? <a href="{{ url_for('login') }}">Login disini</a></p>
+        </form>
+    </div>
+</body>
+</html>
